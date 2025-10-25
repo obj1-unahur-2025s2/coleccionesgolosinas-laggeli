@@ -186,8 +186,8 @@ describe "Test de Mariano" {
   }
   test "Tiene dos golosinas de sabor chocolate, y una de naranja" {
     assert.equals(chocolatin, mariano.golosinaDeSabor("Chocolate")) // golosinaDeSabor devuelve el primer objeto que tenga ese sabor
-    assert.equals(#{chocolatin}, mariano.golosinasDeSabor("Chocolate")) // golosinasDeSabor devuelve un conjunto de golosinas con ese sabor
-    assert.equals(#{caramelo, bomboncito}, mariano.golosinasDeSabor("Frutilla"))
+    assert.equals([chocolatin], mariano.golosinasDeSabor("Chocolate")) // golosinasDeSabor devuelve un conjunto de golosinas con ese sabor
+    assert.equals([caramelo, bomboncito], mariano.golosinasDeSabor("Frutilla"))
   }
   test "Tiene golosinas de sabor frutilla y chocolate" {
     assert.equals(#{"Frutilla", "Chocolate"}, mariano.sabores())

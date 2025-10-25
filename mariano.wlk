@@ -1,6 +1,6 @@
 object mariano {
-    const bolsaDeGolosinas = #{}
-    const bolsaDeGolosinasDesechadas = #{}
+    const bolsaDeGolosinas = []
+    const bolsaDeGolosinasDesechadas = []
     method comprar(golosina) { 
         bolsaDeGolosinas.add(golosina)
     }
@@ -18,7 +18,7 @@ object mariano {
     method sabores() = bolsaDeGolosinas.map({g => g.sabor()}).asSet()
     method golosinaMasCara() = bolsaDeGolosinas.max({g => g.precio()})
     method pesoGolosinas() = bolsaDeGolosinas.sum({g => g.peso()})
-    method golosinasFaltantes(golosinasDeseadas) = golosinasDeseadas.difference(bolsaDeGolosinas)
+    method golosinasFaltantes(golosinasDeseadas) = golosinasDeseadas.filter({ g => !self.tieneLaGolosina(g) })
     method gustosFaltantes(gustosDeseados) = gustosDeseados.difference(self.sabores())
     method gastoEn(sabor) = self.golosinasDeSabor(sabor).sum({g => g.precio()})
     method saborMasPopular() = self.sabores().max({ s => bolsaDeGolosinas.count({ g => g.sabor() == s })})
